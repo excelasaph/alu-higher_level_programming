@@ -1,21 +1,15 @@
 #!/usr/bin/python3
-"""Defines a Pascal's Triangle function."""
+"""Defines a file-appending function."""
 
 
-def pascal_triangle(n):
-    """Represent Pascal's Triangle of size n.
+def append_write(filename="", text=""):
+    """Appends a string to the end of a UTF8 text file.
 
-    Returns a list of lists of integers representing the triangle.
+    Args:
+        filename (str): The name of the file to append to.
+        text (str): The string to append to the file.
+    Returns:
+        The number of characters appended.
     """
-    if n <= 0:
-        return []
-
-    triangles = [[1]]
-    while len(triangles) != n:
-        tri = triangles[-1]
-        tmp = [1]
-        for i in range(len(tri) - 1):
-            tmp.append(tri[i] + tri[i + 1])
-        tmp.append(1)
-        triangles.append(tmp)
-    return triangles
+    with open(filename, "a", encoding="utf-8") as f:
+        return f.write(text)
