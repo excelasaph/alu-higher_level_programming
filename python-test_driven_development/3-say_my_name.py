@@ -37,6 +37,3 @@ def say_my_name(first_name, last_name=""):
 # say_my_name({"name": "asaph"})
 # say_my_name((1, 4, 5))
 # say_my_name("Asaph", 34)
-
-
-
