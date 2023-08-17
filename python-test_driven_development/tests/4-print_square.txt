@@ -1,0 +1,65 @@
+>>> print_square = __import__('4-print_square').print_square
+
+>>> print_square(4)
+####
+####
+####
+####
+>>> print_square(5)
+#####
+#####
+#####
+#####
+#####
+>>> print_square(0)
+>>> print_square(10)
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+>>> print_square(-1.5)
+Traceback (most recent call last):
+  File "./4-print_square.py", line 54, in <module>
+    print_square(-1.5)
+  File "./4-print_square.py", line 33, in print_square
+    raise TypeError("size must be an integer")
+TypeError: size must be an integer
+>>> print_square("1.5")
+Traceback (most recent call last):
+  File "./4-print_square.py", line 55, in <module>
+    print_square("1.5")
+  File "./4-print_square.py", line 35, in print_square
+    raise TypeError("size must be an integer")
+TypeError: size must be an integer
+>>> print_square("hello")
+Traceback (most recent call last):
+  File "./4-print_square.py", line 56, in <module>
+    print_square("hello")
+  File "./4-print_square.py", line 35, in print_square
+    raise TypeError("size must be an integer")
+TypeError: size must be an integer
+>>> print_square(None)
+Traceback (most recent call last):
+  File "./4-print_square.py", line 57, in <module>
+    print_square(None)
+  File "./4-print_square.py", line 35, in print_square
+    raise TypeError("size must be an integer")
+TypeError: size must be an integer
+>>> print_square(-3)
+Traceback (most recent call last):
+  File "./4-print_square.py", line 58, in <module>
+    print_square(-3)
+  File "./4-print_square.py", line 37, in print_square
+    raise ValueError("size must be >= 0")
+ValueError: size must be >= 0
+>>> print_square()
+Traceback (most recent call last):
+  File "./4-print_square.py", line 62, in <module>
+    print_square()
+TypeError: print_square() missing 1 required positional argument: 'size'
