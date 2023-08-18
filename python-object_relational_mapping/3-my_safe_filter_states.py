@@ -1,29 +1,32 @@
 #!/usr/bin/python3
 """
-accepts 3 arguments (mysql username, password and database name)
-and lists all states from that database whose names start with a given string
-SAFELY
+a script that takes in an argument and displays all
+values in the states table of hbtn_0e_0_usa
+where name matches the argument.
+Your script should take 4 arguments
+mysql username, mysql password, database name and state
+name searched (no argument validation needed)
+You must use the module MySQLdb (import MySQLdb)
+Your script should connect to a MySQL server running
+on localhost at port 3306
+You must use format to create the SQL query with the user input
+Results must be sorted in ascending order by states.id
+Results must be displayed as they are in the example below
+Your code should not be executed when imported
 """
-import sys
-import MySQLdb
 
 
-def main(argv):
-    """connects to a given mysql database and lists filtered states from it"""
-    conn = MySQLdb.connect(host="localhost", port=3306,
-                           user=argv[1], passwd=argv[2], db=argv[3])
-    cur = conn.cursor()
-    arg = MySQLdb.escape_string(argv[4]).decode()
-    cur.execute("SELECT * FROM states WHERE name LIKE BINARY '{}%'\
-                ORDER BY id ASC".format(arg))
-    query_rows = cur.fetchall()
-    for row in query_rows:
+if __name__ == "__main__":
+    import sys
+    import MySQLdb
+    database = MySQLdb.connect(host="localhost", port=3306,
+                               user=sys.argv[1], password=sys.argv[2],
+                               database=sys.argv[3], use_unicode=True)
+    name = sys.argv[4]
+    c = database.cursor()
+    c.execute("""SELECT * FROM states WHERE name LIKE BINARY %s
+               ORDER BY id ASC""", (name,))
+    rows = c.fetchall()
+    for row in rows:
         print(row)
-    pass
-    cur.close()
-    conn.close()
-
-
-if __name__ == '__main__':
-    if len(sys.argv) == 5:
-        main(sys.argv)
+    c.close()
