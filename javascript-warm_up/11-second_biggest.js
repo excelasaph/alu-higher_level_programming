@@ -26,4 +26,4 @@ function secondBiggestNumber (processArray) {
   }
   // It was used to debug: console.log(numberArray);
   console.log(numberArray[secondIndex]);
-} 
+}
