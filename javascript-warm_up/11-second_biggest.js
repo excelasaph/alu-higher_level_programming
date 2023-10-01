@@ -11,7 +11,6 @@ function secondBiggestNumber (processArray) {
   for (let i = 0; i < numberArray.length; i++) {
     numberArray[i] = parseInt(numberArray[i]);
   }
-  
   for (let i = 0; i < numberArray.length - 1; i++) {
     for (let j = 0; j < numberArray.length - 1; j++) {
       if (numberArray[j] < numberArray[j + 1]) {
@@ -20,7 +19,6 @@ function secondBiggestNumber (processArray) {
         numberArray[j + 1] = value;
       }
     }
-  }
-  
+  } 
   console.log(numberArray[secondIndex]);
 }
