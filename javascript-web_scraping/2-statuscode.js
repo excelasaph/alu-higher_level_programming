@@ -23,4 +23,3 @@ if (argv[2]) {
 } else {
   console.log('An error occured missing url command line arg.');
 }
-
